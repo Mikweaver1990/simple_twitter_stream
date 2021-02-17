@@ -1,0 +1,27 @@
+<html ng-app="grabber">
+  <head>
+    <title>Twitter top five hastags display</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body ng-controller="endPointController">
+    <h2>{{home}}</h2>
+    <span data-ng-show="response != 0">
+    <h2>Total tweets: {{response.count}}</h2>
+
+    <table class="styled-table" >
+        <tr>
+            <th>Hashtag</th>
+            <th>Count</th>
+        </tr>
+        <tbody data-ng-repeat="hashtag in response.topHashtags">
+            <tr>
+                <td>{{hashtag[0]}}</td>
+                <td>{{hashtag[1]}}</td>
+            </tr>
+        </tbody>
+    </table>
+    </span>
+    <script src="endPointController.js"></script>
+  </body>
+</html>
